@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка мыслей о JS</title>
+    <style>
+        .space {
+            background-color: #fff;
+            width: 400px;
+            height: 400px;
+            margin: 10px;
+            position: relative;
+        }
+        .clickObject {
+            background-color: #000;
+        }
+        #clickObject {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            
+            position: absolute;
+        }
+
+        @keyframes anima {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.2);
+                background-color: red;}
+            100% {transform: scale(1);}
+        }
+
+        .aniClick {
+            animation:  anima .4s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="container" style="background-color: bisque;">
+        <p>
+            По нажатию на кнопку появляется и скрывается блок
+        </p>
+
+        <button id="btn" type="button">ПОКАЗАТЬ</button>
+        <p id="lorem">
+            Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Quas, est impedit ab
+            suscipit laborum omnis ad saepe dolores
+            voluptas reprehenderit. Laudantium praesentium
+            provident recusandae aliquam dolor illum, optio
+            officia consequuntur.
+        </p>
+    </div> -->
+    <div class="container_2" style="background-color: cornflowerblue;">
+        <div class="space">
+            <div class="clickObject" id="clickObject"></div>
+        </div>
+    </div>
+
+    <script>
+       
+        // //По нажатию на кнопку появляется и скрывается блок
+        // const btn = document.getElementById('btn');
+        // const paragraph = document.getElementById('lorem');
+
+        // let isFlag = false;
+
+        // if (!isFlag) {
+        //     paragraph.style.display = "none";
+        // }
+
+        // btn.onclick = function () {
+        //     isFlag = !isFlag;
+        //     if (isFlag) {
+        //         paragraph.style.display = "block";
+        //         btn.innerText = "СКРЫТЬ";
+        //     } else {
+        //         paragraph.style.display = "none";
+        //         btn.innerText = "ПОКАЗАТЬ";
+        //     }
+        // }
+        //******************************************//
+        
+
+        //Проверка анимации клика для кликера
+
+       var elem = document.getElementById('clickObject');
+      
+        setInterval(function(){
+            let y = Math.floor(Math.random() * 360);
+            let x = Math.floor(Math.random() * 360);
+            elem.style.top = y.toString() + "px";
+            elem.style.left = x.toString() + "px";
+        }, 1000);
+
+
+        elem.addEventListener('click', function() {
+            elem.classList.remove("aniClick");
+            elem.offsetHeight = elem.offsetHeight;
+            elem.classList.add("aniClick");    
+        });
+
+        //******************************************//
+
+
+    </script>
+</body>
+
+</html>
